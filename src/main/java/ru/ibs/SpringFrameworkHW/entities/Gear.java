@@ -16,9 +16,11 @@ import javax.persistence.*;
 public class Gear {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
+    @Column(name = "gearSize")
     private Long gearSize;
 
     @ManyToOne

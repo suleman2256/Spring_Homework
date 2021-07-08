@@ -1,5 +1,6 @@
 package ru.ibs.SpringFrameworkHW.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,11 +17,14 @@ import java.util.List;
 public class Manual {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name ="id")
     private Long id;
 
+    @Column(name = "type")
     private String type;
 
+    @JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "manuals")
     private List<Engine> engines;
 }

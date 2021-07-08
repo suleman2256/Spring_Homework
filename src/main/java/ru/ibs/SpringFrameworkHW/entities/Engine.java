@@ -18,15 +18,16 @@ import java.util.List;
 public class Engine {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
+    @Column(name = "type")
     private String type;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "engine")
     private List<Gear> gears;
 
-    @JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL)
     private List<Manual> manuals;
 }

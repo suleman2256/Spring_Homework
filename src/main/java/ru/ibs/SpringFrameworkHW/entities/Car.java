@@ -16,10 +16,13 @@ import javax.persistence.*;
 public class Car {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
+    @Column(name = "manufactureName")
     private String manufactureName;
+    @Column(name = "modelName")
     private String modelName;
 
     @OneToOne(cascade = CascadeType.ALL)
