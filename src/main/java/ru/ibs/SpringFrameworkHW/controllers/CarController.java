@@ -35,15 +35,8 @@ public class CarController {
     }
 
     @PostMapping("update/{id}")
-    public Car updateById(@PathVariable Long id,@RequestBody Car car){
-        if (id == null)
-            throw new RuntimeException("Null id!");
-        String manufactureName = car.getManufactureName();
-        String modelName = car.getModelName();
-        Engine engine = car.getEngine();
-        SteeringWheel steeringWheel = car.getSteeringWheel();
-        final Car updatedCar = carService.updateById(id, manufactureName, modelName, engine, steeringWheel);
-        return updatedCar;
+    public void updateById(@PathVariable Long id,@RequestBody Car car){
+        carService.addCar(car);
     }
 
     @PostMapping("delete/{id}")

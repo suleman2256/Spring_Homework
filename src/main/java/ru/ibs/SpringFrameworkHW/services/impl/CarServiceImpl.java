@@ -32,17 +32,6 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public Car updateById(Long id, String manufactureName, String modelName, Engine engine, SteeringWheel steeringWheel) {
-        Car car = carRepository.findById(id).get();
-        car.setManufactureName(manufactureName);
-        car.setModelName(modelName);
-        car.setEngine(engine);
-        car.setSteeringWheel(steeringWheel);
-        carRepository.save(car);
-        return car;
-    }
-
-    @Override
     public void delete(Long id) {
         carRepository.delete(findCarById(id));
     }

@@ -24,6 +24,6 @@ public class Gear {
     private Long gearSize;
 
     @ManyToOne
-    @JoinColumn(name = "ENGINE_ID", referencedColumnName = "ID")
+    @JoinColumn(name = "engine_id", referencedColumnName = "id")
     private Engine engine;
 }

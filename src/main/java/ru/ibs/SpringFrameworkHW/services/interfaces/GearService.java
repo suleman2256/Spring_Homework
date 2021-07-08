@@ -13,7 +13,5 @@ public interface GearService {
 
     void addGear(Gear gear);
 
-    Gear updateById(Long gearId, Long gearSize, Engine engine);
-
     void delete(Long gearId);
 }

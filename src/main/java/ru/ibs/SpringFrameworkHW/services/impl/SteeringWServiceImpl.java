@@ -30,14 +30,6 @@ public class SteeringWServiceImpl implements SteeringWService {
     }
 
     @Override
-    public SteeringWheel updateById(Long swId, String type) {
-        SteeringWheel steeringWheel = steeringWRepository.findById(swId).get();
-        steeringWheel.setType(type);
-        steeringWRepository.save(steeringWheel);
-        return steeringWheel;
-    }
-
-    @Override
     public void delete(Long swId) {
         steeringWRepository.delete(findSteeringWheelById(swId));
     }

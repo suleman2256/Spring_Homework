@@ -12,7 +12,5 @@ public interface SteeringWService {
 
     void addSteeringWheel(SteeringWheel steeringWheel);
 
-    SteeringWheel updateById(Long swId, String type);
-
     void delete(Long swId);
 }

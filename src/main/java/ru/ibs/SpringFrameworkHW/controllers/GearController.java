@@ -3,8 +3,6 @@ package ru.ibs.SpringFrameworkHW.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import ru.ibs.SpringFrameworkHW.entities.Car;
-import ru.ibs.SpringFrameworkHW.entities.Engine;
 import ru.ibs.SpringFrameworkHW.entities.Gear;
 import ru.ibs.SpringFrameworkHW.services.interfaces.GearService;
 
@@ -34,13 +32,8 @@ public class GearController {
     }
 
     @PostMapping("update/{id}")
-    public Gear updateById(@PathVariable Long id,@RequestBody Gear gear){
-        if (id == null)
-            throw new RuntimeException("Null id!");
-        Long gearSize = gear.getGearSize();
-        Engine engine = gear.getEngine();
-        final Gear updatedGear = gearService.updateById(id,gearSize,engine);
-        return updatedGear;
+    public void updateById(@PathVariable Long id, @RequestBody Gear gear){
+        gearService.addGear(gear);
     }
 
     @PostMapping("delete/{id}")

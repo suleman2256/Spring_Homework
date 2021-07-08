@@ -3,8 +3,6 @@ package ru.ibs.SpringFrameworkHW.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import ru.ibs.SpringFrameworkHW.entities.Car;
-import ru.ibs.SpringFrameworkHW.entities.Engine;
 import ru.ibs.SpringFrameworkHW.entities.Manual;
 import ru.ibs.SpringFrameworkHW.services.interfaces.ManualService;
 
@@ -34,13 +32,8 @@ public class ManualController {
     }
 
     @PostMapping("update/{id}")
-    public Manual updateById(@PathVariable Long id,@RequestBody Manual manual){
-        if (null == id)
-            throw new RuntimeException("Null id!");
-        String type = manual.getType();
-        List<Engine> engines = manual.getEngines();
-        final Manual updatedManual = manualService.updateById(id, type, engines);
-        return updatedManual;
+    public void updateById(@PathVariable Long id, @RequestBody Manual manual){
+        manualService.addManual(manual);
     }
 
     @PostMapping("delete/{id}")

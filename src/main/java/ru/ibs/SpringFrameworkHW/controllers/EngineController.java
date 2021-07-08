@@ -35,14 +35,8 @@ public class EngineController {
     }
 
     @PostMapping("update/{id}")
-    public Engine updateById(@PathVariable Long id,@RequestBody Engine engine){
-        if (id == null)
-            throw new RuntimeException("Null id!");
-        String type = engine.getType();
-        List<Gear> gears = engine.getGears();
-        List<Manual> manuals = engine.getManuals();
-        final Engine updateEngine = engineService.updateById(id,type,gears,manuals);
-        return updateEngine;
+    public void updateById(@PathVariable Long id,@RequestBody Engine engine) {
+        engineService.addEngine(engine);
     }
 
     @PostMapping("delete/{id}")

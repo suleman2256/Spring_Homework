@@ -14,7 +14,5 @@ public interface CarService {
 
     Car findCarById(Long id);
 
-    Car updateById(Long id, String manufacturerName, String modelName, Engine engine, SteeringWheel steeringWheel);
-
     void delete(Long id);
 }

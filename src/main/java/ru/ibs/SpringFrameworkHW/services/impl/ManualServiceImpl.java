@@ -31,15 +31,6 @@ public class ManualServiceImpl implements ManualService {
     }
 
     @Override
-    public Manual updateById(Long manualId, String type, List<Engine> engines) {
-        Manual manual = manualRepository.findById(manualId).get();
-        manual.setType(type);
-        manual.setEngines(engines);
-        manualRepository.save(manual);
-        return manual;
-    }
-
-    @Override
     public void delete(Long manualId) {
         manualRepository.delete(findManualById(manualId));
     }

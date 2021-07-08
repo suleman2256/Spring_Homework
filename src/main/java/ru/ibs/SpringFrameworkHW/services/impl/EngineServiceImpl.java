@@ -33,16 +33,6 @@ public class EngineServiceImpl implements EngineService {
     }
 
     @Override
-    public Engine updateById(Long engineId, String type, List<Gear> gears, List<Manual> manuals) {
-        Engine engine = engineRepository.findById(engineId).get();
-        engine.setType(type);
-        engine.setGears(gears);
-        engine.setManuals(manuals);
-        engineRepository.save(engine);
-        return engine;
-    }
-
-    @Override
     public void delete(Long engineId) {
         engineRepository.delete(findEngineById(engineId));
     }

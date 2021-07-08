@@ -3,7 +3,6 @@ package ru.ibs.SpringFrameworkHW.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import ru.ibs.SpringFrameworkHW.entities.Car;
 import ru.ibs.SpringFrameworkHW.entities.SteeringWheel;
 import ru.ibs.SpringFrameworkHW.services.interfaces.SteeringWService;
 
@@ -33,12 +32,8 @@ public class SteeringWheelController {
     }
 
     @PostMapping("update/{id}")
-    public SteeringWheel updateById(@PathVariable Long id,@RequestBody SteeringWheel steeringWheel){
-        if (id == null)
-            throw new RuntimeException("Null id!");
-        String type = steeringWheel.getType();
-        final SteeringWheel updatedSW = steeringWService.updateById(id, type);
-        return updatedSW;
+    public void updateById(@PathVariable Long id, @RequestBody SteeringWheel steeringWheel){
+        steeringWService.addSteeringWheel(steeringWheel);
     }
 
     @PostMapping("delete/{id}")

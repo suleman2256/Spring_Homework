@@ -13,7 +13,5 @@ public interface ManualService {
 
     void addManual(Manual manual);
 
-    Manual updateById(Long manualId, String type, List<Engine> engines);
-
     void delete(Long manualId);
 }

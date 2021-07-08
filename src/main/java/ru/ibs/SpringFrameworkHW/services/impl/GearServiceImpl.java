@@ -32,15 +32,6 @@ public class GearServiceImpl implements GearService {
 
 
     @Override
-    public Gear updateById(Long gearId, Long gearSize, Engine engine) {
-        Gear gear = gearRepository.findById(gearId).get();
-        gear.setGearSize(gearSize);
-        gear.setEngine(engine);
-        gearRepository.save(gear);
-        return gear;
-    }
-
-    @Override
     public void delete(Long gearId) {
         gearRepository.delete(findCarById(gearId));
     }
